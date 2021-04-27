@@ -2,7 +2,7 @@
 import csv
 
 #Open the log file into the object 'file' with read perms
-file = open('example.txt', 'r')
+file = open('exampleData.txt', 'r')
 
 #Key Defs
 
