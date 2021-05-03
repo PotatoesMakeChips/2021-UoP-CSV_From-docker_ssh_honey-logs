@@ -2,7 +2,7 @@
 import csv
 
 #Open the log file into the object 'file' with read perms
-file = open('exampleData.txt', 'r')
+file = open('blr-ssh.log', 'r', encoding="utf-8")
 
 #Key Defs
 
@@ -42,8 +42,9 @@ while True:
     dataLine = fileLine.strip() #removes newline characters
 
     #splits line into an array list
-    dataAray = dataLine.split() #Each new word is a new array item
+    dataAray = dataLine.split(" ") #Each new word is a new array item
                                 #Eg: "Hello World" -> ["Hello", "World"]
+    print(dataAray)
 
     #Gets the year from the dataAray line
     year = dataAray[4]
@@ -62,8 +63,14 @@ while True:
 
     #Gets the other datapoints as strings. Datatype is forced for same reason as above
     ipAddress = str(dataAray[5])
-    username = str(dataAray[6])
-    password = str(dataAray[7])
+    try:
+        username = str(dataAray[6])
+    except:
+        usernaem = ""
+    try:
+        password = str(dataAray[7])
+    except:
+        password = ""
 
     #Creates an array list of the data we want to write to the csv file
     csvLine = [date,ipAddress,username,password]
@@ -71,11 +78,12 @@ while True:
     #Appends the csvLine array to the array that is writen to the file
     rowList.append(csvLine)
 
+
 # Closes the log file to prevent damage to data
 file.close()
 
 # Opens the csv file with write perms
-with open('protagonist.csv', 'w', newline='') as csvFile:
+with open('blr-ssh.csv', 'w', newline='', encoding="utf-8") as csvFile:
     # Creates the object used to write to a csv file
     writer = csv.writer(csvFile)
     # Writes the 2D array to the csv file

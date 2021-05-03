@@ -132,3 +132,4 @@ dmypy.json
 exampleData.txt
 exampleData.csv
 exampleIpCountry.csv
+*.csv

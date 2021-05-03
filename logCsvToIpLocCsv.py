@@ -3,7 +3,7 @@ import requests
 import csv
 
 #Open the CSV log file into the object 'file' with read perms
-file = open('exampleData.csv', 'r')
+file = open('nyc-ssh.csv', 'r', encoding="utf-8")
 
 #Thease are the required varables to read the file
 arrayofcsv = [] # the aray we're saveing the file in
@@ -49,7 +49,7 @@ for entry in arrayofcsv:
 
 
 # Opens the csv file we're writing with write perms
-with open('exampleIpCountry.csv', 'w', newline='') as csvFile:
+with open('nyc-ip.csv', 'w', newline='', encoding="utf-8") as csvFile:
     # Creates the object used to write to a csv file
     writer = csv.writer(csvFile)
     # Writes the 2D array to the csv file
